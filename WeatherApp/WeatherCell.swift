@@ -9,16 +9,23 @@
 import UIKit
 
 class WeatherCell: UITableViewCell {
+    @IBOutlet var weatherIcon: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet var dayLabel: UILabel!
+    
+    @IBOutlet var weatherTypeLabel: UILabel!
+    
+    @IBOutlet var highLabel: UILabel!
+    
+    @IBOutlet var lowLabel: UILabel!
+    
+    func configureCell(forcast: Forcast) {
+        dayLabel.text = forcast.date
+        highLabel.text = "\(forcast.highTemp)"
+        lowLabel.text = "\(forcast.lowTemp)"
+        weatherTypeLabel.text = forcast.weatherType
+        weatherIcon.image = UIImage(named: forcast.weatherType)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    
 }

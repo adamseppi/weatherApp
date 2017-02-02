@@ -44,7 +44,9 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-Cd-kqg">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmC-Ly-XCn"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jmC-Ly-XCn">
+                                                <frame key="frameInset" width="120" height="120"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfO-Gv-P4t">
                                                 <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="17"/>
                                                 <color key="textColor" red="0.9913060897" green="0.9913060897" blue="0.9913060897" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +69,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gx0-M9-Xv5">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="IWY-C8-rkN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="IWY-C8-rkN" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IWY-C8-rkN" id="SjK-q2-sbN">
@@ -85,7 +87,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kg0-HC-ORf">
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ9-dT-OW2">
-                                                                    <frame key="frameInset" width="179" height="24"/>
+                                                                    <frame key="frameInset" width="93" height="24"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -127,6 +129,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="6Eh-Cf-3vG" secondAttribute="bottom" constant="10" id="mZh-7Z-5bc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="IJ9-dT-OW2" id="JPP-QY-7iP"/>
+                                            <outlet property="highLabel" destination="rhK-9k-3N7" id="XGq-yH-pYv"/>
+                                            <outlet property="lowLabel" destination="J9t-k8-I96" id="pDB-DM-M1v"/>
+                                            <outlet property="weatherIcon" destination="fzl-ZV-6iG" id="2p5-b9-hPb"/>
+                                            <outlet property="weatherTypeLabel" destination="8qe-vM-Uqc" id="r3m-ef-c4E"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -148,6 +157,7 @@
                         <outlet property="currentWeatherImg" destination="jmC-Ly-XCn" id="uaN-zs-mdJ"/>
                         <outlet property="dateLabel" destination="vNe-bl-73u" id="HX6-O0-RUw"/>
                         <outlet property="locationLabel" destination="bri-7z-iiJ" id="RmT-fG-KAT"/>
+                        <outlet property="tableView" destination="gx0-M9-Xv5" id="F9P-pr-EqX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
